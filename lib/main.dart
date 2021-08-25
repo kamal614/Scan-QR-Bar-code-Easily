@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:qr_code_scanner_example/page/qr_create_page.dart';
-import 'package:qr_code_scanner_example/page/qr_scan_page.dart';
-import 'package:qr_code_scanner_example/widget/button_widget.dart';
+import 'package:scan_qr_easily/page/qr_create_page.dart';
+import 'package:scan_qr_easily/page/qr_scan_page.dart';
+import 'package:scan_qr_easily/widget/button_widget.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 
 void main() {
@@ -16,7 +17,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  static final String title = 'QR Code Scanner';
+  static final String title = 'QR CODE SCANNER';
 
   @override
   Widget build(BuildContext context) => MaterialApp(
@@ -46,13 +47,11 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-
-          title: Padding(
-            padding: EdgeInsets.zero,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Builder(
+          title: Stack(
+            children: [
+              Align(
+                alignment: Alignment.topLeft,
+                child: Builder(
                   builder: (context) => IconButton(
                     icon: Image.asset(
                       "assets/icon.png",
@@ -62,19 +61,18 @@ class _MainPageState extends State<MainPage> {
                     onPressed: () => Scaffold.of(context).openDrawer(),
                   ),
                 ),
-                SizedBox(
-                  width: 75,
-                ),
-                Text(
-                  widget.title,
-                  style: TextStyle(color: Colors.black),
-                )
-              ],
-            ),
+              ),
+              Center(
+                  child: Align(
+                      alignment: Alignment.topCenter,
+                      child: Text(
+                        widget.title,
+                        style: TextStyle(fontSize: 25.0),
+                      )))
+            ],
           ),
-
+          centerTitle: true,
           titleSpacing: 0,
-          // centerTitle: true,
         ),
         drawer: Drawer(
           elevation: 10,
@@ -95,21 +93,6 @@ class _MainPageState extends State<MainPage> {
                               image: AssetImage("assets/qr2.jpeg"),
                               fit: BoxFit.cover)),
                     ),
-                    // DrawerHeader(
-                    //   child: Column(
-                    //     // crossAxisAlignment: CrossAxisAlignment.start,
-                    //     children: <Widget>[
-                    //       Text(
-                    //         'John Doe',
-                    //       ),
-                    //     ],
-                    //   ),
-                    //   decoration: BoxDecoration(
-                    //     image: DecorationImage(
-                    //         image: AssetImage("assets/qr2.jpeg"),
-                    //         fit: BoxFit.cover),
-                    //   ),
-                    // ),
                     ListTile(
                       title: Text(
                         'Create QR Code',
@@ -142,7 +125,6 @@ class _MainPageState extends State<MainPage> {
                         ));
                       },
                     ),
-
                     ListTile(
                       title: InkWell(
                         child: Text(
@@ -156,9 +138,6 @@ class _MainPageState extends State<MainPage> {
                         size: 20.0,
                         color: Colors.white,
                       ),
-                      onTap: () {
-                        //todo
-                      },
                     ),
                     ListTile(
                       title: InkWell(
@@ -190,8 +169,8 @@ class _MainPageState extends State<MainPage> {
                                   style: TextStyle(fontWeight: FontWeight.bold),
                                   textAlign: TextAlign.center,
                                 ),
-                                onTap: () =>
-                                    launch('https://github.com/kamal614'),
+                                onTap: () => launch(
+                                    'https://github.com/kamal614/Scan-QR-Bar-code-Easily'),
                               ),
                             ),
                           ],

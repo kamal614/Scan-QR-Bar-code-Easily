@@ -1,6 +1,6 @@
 {
-    "name": "qr_code_scanner_example",
-    "short_name": "qr_code_scanner_example",
+    "name": "Scan Qr Easily",
+    "short_name": "Scan Qr Easily",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

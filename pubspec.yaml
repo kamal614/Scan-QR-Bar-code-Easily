@@ -1,4 +1,4 @@
-name: qr_code_scanner_example
+name: "scan_qr_easily"
 version: 1.0.0+1
 
 environment:

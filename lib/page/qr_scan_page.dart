@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
-import 'package:qr_code_scanner_example/widget/button_widget.dart';
+import 'package:scan_qr_easily/widget/button_widget.dart';
 
 class QRScanPage extends StatefulWidget {
   @override
@@ -14,7 +14,6 @@ class _QRScanPageState extends State<QRScanPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          // title: Text(MyApp.title),
           title: Text("Scan QR Code"),
           centerTitle: true,
         ),

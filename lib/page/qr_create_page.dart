@@ -12,7 +12,6 @@ class _QRCreatePageState extends State<QRCreatePage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          // title: Text(MyApp.title),
           title: Text("Generate Your QR Code"),
           centerTitle: true,
         ),
@@ -26,6 +25,7 @@ class _QRCreatePageState extends State<QRCreatePage> {
                   barcode: Barcode.qrCode(),
                   color: Colors.black,
                   data: controller.text ?? 'Hello world',
+                  // data: controller.text == null,
                   width: 200,
                   height: 200,
                 ),
